@@ -7,7 +7,7 @@
 ├── Pipfile
 ├── Pipfile.lock
 ├── README.md
-├── config.yaml
+├── config.ini
 ├── excel
 │   └── XXXX.xlsx
 ├── main.py
@@ -17,31 +17,36 @@
     └── XXXX.txt
 ```
 
-> config.yaml
+> config.ini
 ```
 # Excelファイル名(年月無し)
-FILE: "XXXX"
+[FILE]
+FILE=XXXX
 
 # 抽出条件(条件)
-DEPARTMENT: "XXXX"
+[DEPARTMENT]
+DEPARTMENT=XXXX
 
 # 抽出条件(Excel 項目名)
-KEY: "XXXX"
+[KEY]
+KEY=XXXX
 
 # 確認対象者
-NAME: "XXXX"
+[NAME]
+NAME=XXXX
 
 # 抽出したい情報
-ITEM:
-  - "XXXX"
-  - "XXXX"
-  - "XXXX"
-  - "XXXX"
-  - "XXXX"
+[ITEM]
+MACHINE_ID=XXXX
+ASSET_ABBREVIATION=XXXX
+ASSET_NAME=XXXX
+MODEL_NUMBER=XXXX
+LOCATION=XXXX
 
 # 開始日と終了日
-START: "XXXX"
-END: "XXXX"
+[RENTAL]
+START=XXXX
+END=XXXX
 ```
 
 ## 使用方法
@@ -50,7 +55,7 @@ cd /XXX/rental_machine_manager
 ```
 ###### Windows(cmd)
 ```
-run.cmd
+run.bat
 ```
 ###### mac(zsh)
 ```
