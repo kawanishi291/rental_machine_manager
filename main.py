@@ -1,6 +1,6 @@
 import glob
 import datetime
-import yaml
+import configparser
 import pandas as pd
 import mojimoji
 from monthdelta import monthmod
@@ -55,27 +55,33 @@ def main():
     for member in member_list:
 
         f.writelines(
-    """
-    ◆%sさん
-    %s
-    →延長(36か月まで)*前回は%dか月延長でした。
-    →入替
-    →返却
-    """
+"""
+◆%sさん
+%s
+→延長(36か月まで)*前回は%dか月延長でした。
+→入替
+→返却
+"""
         % (member[4], member[2], member[3]))
 
     f.close()
 
 
-with open('./config.yaml', 'r') as f:
-    yaml_file = yaml.safe_load(f)
-    FILE = yaml_file["FILE"]
-    DEPARTMENT = yaml_file["DEPARTMENT"]
-    KEY = yaml_file["KEY"]
-    NAME = yaml_file["NAME"]
-    ITEM = yaml_file["ITEM"]
-    START = yaml_file["START"]
-    END = yaml_file["END"]
+config = configparser.ConfigParser()
+config.read('config.ini')
+config.sections()
+
+FILE = config["FILE"]["FILE"]
+DEPARTMENT = config["DEPARTMENT"]["DEPARTMENT"]
+KEY = config["KEY"]["KEY"]
+NAME = config["NAME"]["NAME"]
+ITEM_SECTION = config['ITEM']
+START = config["RENTAL"]["START"]
+END = config["RENTAL"]["END"]
+
+ITEM = []
+for k, v in ITEM_SECTION.items():
+    ITEM.append(v)
 
 if __name__ == '__main__':
     main()
