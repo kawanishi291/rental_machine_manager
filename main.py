@@ -51,10 +51,9 @@ def main():
                     member_list[i][4] = member_list[i][0]
 
 
-    f = open('./text/' + file_name + '.txt', 'w')
-    for member in member_list:
-
-        f.writelines(
+    with open('./text/' + file_name + '.txt', mode='w') as f:
+        for member in member_list:
+            f.write(
 """
 ◆%sさん
 %s
@@ -62,9 +61,9 @@ def main():
 →入替
 →返却
 """
-        % (member[4], member[2], member[3]))
+            % (member[4], member[2], member[3]))
 
-    f.close()
+    return 0
 
 
 config = configparser.ConfigParser()
