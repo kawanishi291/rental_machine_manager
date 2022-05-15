@@ -19,23 +19,23 @@
 
 > config.ini
 ```
-# Excelファイル名(年月無し)
+;Excelファイル名(年月無し)
 [FILE]
 FILE=XXXX
 
-# 抽出条件(条件)
+;抽出条件(条件)
 [DEPARTMENT]
 DEPARTMENT=XXXX
 
-# 抽出条件(Excel 項目名)
+;抽出条件(Excel 項目名)
 [KEY]
 KEY=XXXX
 
-# 確認対象者
+;確認対象者
 [NAME]
 NAME=XXXX
 
-# 抽出したい情報
+;抽出したい情報
 [ITEM]
 MACHINE_ID=XXXX
 ASSET_ABBREVIATION=XXXX
@@ -43,7 +43,7 @@ ASSET_NAME=XXXX
 MODEL_NUMBER=XXXX
 LOCATION=XXXX
 
-# 開始日と終了日
+;開始日と終了日
 [RENTAL]
 START=XXXX
 END=XXXX
