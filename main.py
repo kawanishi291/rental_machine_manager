@@ -38,17 +38,17 @@ def main():
         start_date = datetime.datetime.strptime(df[START][index], '%Y/%m/%d %H:%M:%S')
         end_date = datetime.datetime.strptime(df[END][index], '%Y/%m/%d %H:%M:%S')
         mmod = monthmod(start_date, end_date)
-        tmp_list = [name[:name.find(' ')], name, data, mmod[0].months + 1, ""]
-        member_list.append(tmp_list)
+        tmp_dict = {'name': "", 'first_name': name[:name.find(' ')], 'full_name': name, 'data': data, 'month': mmod[0].months + 1}
+        member_list.append(tmp_dict)
 
     for i in range(len(member_list)):
         for j in range(len(member_list)):
             if i != j:
-                if member_list[i][4] == member_list[j][0]:
-                    member_list[i][4] = member_list[i][1]
+                if member_list[i]['name'] == member_list[j]['first_name']:
+                    member_list[i]['name'] = member_list[i]['full_name']
                     break
                 else:
-                    member_list[i][4] = member_list[i][0]
+                    member_list[i]['name'] = member_list[i]['first_name']
 
 
     with open('./text/' + file_name + '.txt', mode='w') as f:
@@ -61,7 +61,7 @@ def main():
 →入替
 →返却
 """
-            % (member[4], member[2], member[3]))
+            % (member['name'], member['data'], member['month']))
 
     return 0
 
