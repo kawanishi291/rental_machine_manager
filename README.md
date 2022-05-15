@@ -11,7 +11,7 @@
 ├── excel
 │   └── XXXX.xlsx
 ├── main.py
-├── run.cmd
+├── run.bat
 ├── run.sh
 └── text
     └── XXXX.txt
