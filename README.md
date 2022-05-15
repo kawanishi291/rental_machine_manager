@@ -3,7 +3,7 @@
 
 ## 構成
 ```
-.
+./rental_machine_manager
 ├── Pipfile
 ├── Pipfile.lock
 ├── README.md
@@ -11,6 +11,8 @@
 ├── excel
 │   └── XXXX.xlsx
 ├── main.py
+├── run.cmd
+├── run.sh
 └── text
     └── XXXX.txt
 ```
@@ -40,4 +42,27 @@ ITEM:
 # 開始日と終了日
 START: "XXXX"
 END: "XXXX"
+```
+
+## 使用方法
+```
+cd /XXX/rental_machine_manager
+```
+###### Windows(cmd)
+```
+run.cmd
+```
+###### mac(zsh)
+```
+zsh run.sh
+```
+
+#### インストール
+```
+pipenv install
+```
+#### 起動
+```
+pipenv shell
+python main.py
 ```
