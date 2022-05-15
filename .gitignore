@@ -129,7 +129,7 @@ dmypy.json
 .pyre/
 
 *.xlsx
-*.yaml
+*.ini
 *.txt
 
 .DS_Store
