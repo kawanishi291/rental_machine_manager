@@ -3,6 +3,7 @@
 
 ## 構成
 ```
+.
 ├── Pipfile
 ├── Pipfile.lock
 ├── README.md
