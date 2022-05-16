@@ -11,6 +11,12 @@ SET /a M=%date:~5,2%
 SET /a B_M=%M%-1
 SET /a A_M=%M%+1
 
+if M == 1 (
+   SET /a B_M=12
+) else if M == 12 (
+   SET /a A_M=1
+)
+
 for /f %%a in (%INIFILE%) do (
    if %%a == [FILE] (
       SET FLAG=TRUE

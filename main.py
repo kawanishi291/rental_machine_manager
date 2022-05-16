@@ -2,9 +2,19 @@ import glob
 import datetime
 import configparser
 import pandas as pd
-import mojimoji
 from monthdelta import monthmod
 
+
+def SetFileName(m, y):
+    zenhan_list = ["１", "２", "３", "４", "５", "６", "７", "８", "９", "１０", "１１", "１２"]
+
+    match m:
+        case 1:
+            return "12-" + str(m + 1) + FILE + str(y), zenhan_list[m]
+        case 12:
+            return str(m - 1) + "-1" + FILE + str(y), zenhan_list[0]
+        case _:
+            return str(m - 1) + "-" + str(m + 1) + FILE + str(y), zenhan_list[m]
 
 def SetData(df, index):
     data = ""
@@ -18,15 +28,12 @@ def SetData(df, index):
 
 def main():
     dt = datetime.datetime.now()
-    file_name = str(dt.month - 1) + "-" + str(dt.month + 1) + FILE + str(dt.year)
-
+    file_name, sheet_month = SetFileName(dt.month, dt.year)
 
     path_list = glob.glob('./excel/' + file_name + '.xlsx')
     path_list.sort()
     path = path_list[-1]
     # print(path_list)
-
-    sheet_month = mojimoji.han_to_zen(str(dt.month + 1))
 
     df = pd.read_excel(path, sheet_name=sheet_month+"月終了", index_col=0, engine="openpyxl")
     df = df.reset_index()

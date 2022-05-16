@@ -19,6 +19,13 @@ eval `sed -e 's/[[:space:]]*\=[[:space:]]*/=/g' \
 # text open
 month=`date '+%-m'`
 year=`date '+%-Y'`
-open ./text/$(($month-1))-$(($month+1))$FILE$year.txt
+
+if [ $month -eq 1 ]; then
+    open ./text/12-$(($month+1))$FILE$year.txt
+elif [ $month -eq 12 ]; then
+    open ./text/$(($month-1))-1$FILE$year.txt
+else
+    open ./text/$(($month-1))-$(($month+1))$FILE$year.txt
+fi
 
 exit
